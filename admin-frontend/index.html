@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #27ae60;
+        }
+        .products-list {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        .delete-btn {
+            background: #e74c3c;
+        }
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        .edit-btn {
+            background: #3498db;
+            margin-right: 10px;
+        }
+        .edit-btn:hover {
+            background: #2980b9;
+        }
+        .categories-container {
+            position: relative;
+        }
+        .categories-tree {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .category-group {
+            margin-bottom: 10px;
+        }
+        .main-category {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .subcategories {
+            margin-left: 20px;
+        }
+        .subcategory {
+            margin: 3px 0;
+        }
+        .category-checkbox {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .category-label {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .category-label:hover {
+            color: #3498db;
+        }
+        .categories-help {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Панель администратора</h1>
+        
+        <div class="product-form" id="productForm">
+            <h2>Добавить/Редактировать товар</h2>
+            <form id="addProductForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="name">Название</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Цена</label>
+                    <input type="number" id="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание</label>
+                    <textarea id="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categories">Категории</label>
+                    <div class="categories-container">
+                        <div class="categories-tree" id="categoriesTree">
+                            <div class="category-group">
+                                <div class="main-category">
+                                    <label class="category-label">
+                                        <input type="checkbox" class="category-checkbox" value="Компьютеры" data-main-category>
+                                        Компьютеры
+                                    </label>
+                                </div>
+                                <div class="subcategories">
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Ноутбуки" data-subcategory="Компьютеры">
+                                            Ноутбуки
+                                        </label>
+                                    </div>
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Игровые ПК" data-subcategory="Компьютеры">
+                                            Игровые ПК
+                                        </label>
+                                    </div>
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Комплектующие" data-subcategory="Компьютеры">
+                                            Комплектующие
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-group">
+                                <div class="main-category">
+                                    <label class="category-label">
+                                        <input type="checkbox" class="category-checkbox" value="Телефоны" data-main-category>
+                                        Телефоны
+                                    </label>
+                                </div>
+                                <div class="subcategories">
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Apple" data-subcategory="Телефоны">
+                                            Apple
+                                        </label>
+                                    </div>
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Samsung" data-subcategory="Телефоны">
+                                            Samsung
+                                        </label>
+                                    </div>
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Xiaomi" data-subcategory="Телефоны">
+                                            Xiaomi
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-group">
+                                <div class="main-category">
+                                    <label class="category-label">
+                                        <input type="checkbox" class="category-checkbox" value="Электроника" data-main-category>
+                                        Электроника
+                                    </label>
+                                </div>
+                                <div class="subcategories">
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Аудио" data-subcategory="Электроника">
+                                            Аудио
+                                        </label>
+                                    </div>
+                                    <div class="subcategory">
+                                        <label class="category-label">
+                                            <input type="checkbox" class="category-checkbox" value="Зарядные устройства" data-subcategory="Электроника">
+                                            Зарядные устройства
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="categories" required>
+                        <div class="categories-help">
+                            Выберите категории и подкатегории для товара
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+
+        <div class="products-list" id="productsList">
+            <!-- Список товаров будет добавлен через JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const API_URL = '/api';
+        let editingProduct = null;
+
+        async function loadProducts() {
+            try {
+                const response = await fetch(`${API_URL}/products`);
+                const data = await response.json();
+                displayProducts(data.products);
+            } catch (error) {
+                console.error('Ошибка загрузки товаров:', error);
+            }
+        }
+
+        function displayProducts(products) {
+            const container = document.getElementById('productsList');
+            container.innerHTML = '<h2>Список товаров</h2>';
+
+            products.forEach(product => {
+                const div = document.createElement('div');
+                div.className = 'product-item';
+                const editBtn = document.createElement('button');
+                editBtn.className = 'edit-btn';
+                editBtn.textContent = 'Редактировать';
+                editBtn.onclick = () => editProduct(product);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.textContent = 'Удалить';
+                deleteBtn.onclick = () => deleteProduct(product.id);
+
+                div.innerHTML = `
+                    <div>
+                        <strong>${product.name}</strong> - ${product.price}₽
+                        <br>
+                        <small>${product.categories.join(', ')}</small>
+                    </div>
+                `;
+
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.appendChild(editBtn);
+                buttonsDiv.appendChild(deleteBtn);
+                div.appendChild(buttonsDiv);
+
+                container.appendChild(div);
+            });
+        }
+
+        function editProduct(product) {
+            editingProduct = product;
+            document.getElementById('productId').value = product.id;
+            document.getElementById('name').value = product.name;
+            document.getElementById('price').value = product.price;
+            document.getElementById('description').value = product.description;
+            
+            // Сброс всех чекбоксов
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            
+            // Выбор нужных категорий
+            product.categories.forEach(category => {
+                const checkbox = document.querySelector(`[value="${category}"]`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                }
+            });
+            
+            updateSelectedCategories();
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Вы уверены, что хотите удалить этот товар?')) return;
+
+            try {
+                await fetch(`${API_URL}/products/${id}`, {
+                    method: 'DELETE'
+                });
+                loadProducts();
+            } catch (error) {
+                console.error('Ошибка удаления товара:', error);
+            }
+        }
+
+        // Инициализация после загрузки DOM
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('addProductForm');
+            const categoriesInput = document.getElementById('categories');
+            const categoriesTree = document.getElementById('categoriesTree');
+            
+            // Обработка выбора категорий
+            categoriesTree.addEventListener('change', (e) => {
+                if (e.target.classList.contains('category-checkbox')) {
+                    const checkbox = e.target;
+                    
+                    // Если выбрана главная категория
+                    if (checkbox.hasAttribute('data-main-category')) {
+                        const subcategories = categoriesTree.querySelectorAll(`[data-subcategory="${checkbox.value}"]`);
+                        subcategories.forEach(sub => {
+                            sub.checked = checkbox.checked;
+                        });
+                    }
+                    
+                    // Если выбрана подкатегория
+                    if (checkbox.hasAttribute('data-subcategory')) {
+                        const mainCategory = checkbox.getAttribute('data-subcategory');
+                        const mainCheckbox = categoriesTree.querySelector(`[value="${mainCategory}"][data-main-category]`);
+                        const allSubcategories = categoriesTree.querySelectorAll(`[data-subcategory="${mainCategory}"]`);
+                        const checkedSubcategories = Array.from(allSubcategories).filter(sub => sub.checked);
+                        
+                        // Если выбрана хотя бы одна подкатегория, выбираем главную категорию
+                        mainCheckbox.checked = checkedSubcategories.length > 0;
+                    }
+                    
+                    updateSelectedCategories();
+                }
+            });
+
+            function updateSelectedCategories() {
+                const selectedCategories = new Set();
+                const selectedSubcategories = new Set();
+                const checkboxes = categoriesTree.querySelectorAll('.category-checkbox:checked');
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.hasAttribute('data-main-category')) {
+                        selectedCategories.add(checkbox.value);
+                    } else if (checkbox.hasAttribute('data-subcategory')) {
+                        selectedSubcategories.add(checkbox.value);
+                    }
+                });
+                
+                categoriesInput.value = Array.from(selectedCategories).join(', ') + ', ' + Array.from(selectedSubcategories).join(', ');
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const selectedCategories = new Set();
+                const selectedSubcategories = new Set();
+                const checkedBoxes = categoriesTree.querySelectorAll('.category-checkbox:checked');
+                
+                checkedBoxes.forEach(checkbox => {
+                    if (checkbox.hasAttribute('data-main-category')) {
+                        selectedCategories.add(checkbox.value);
+                    } else if (checkbox.hasAttribute('data-subcategory')) {
+                        selectedSubcategories.add(checkbox.value);
+                    }
+                });
+
+                const productData = {
+                    name: document.getElementById('name').value,
+                    price: Number(document.getElementById('price').value),
+                    description: document.getElementById('description').value,
+                    categories: [...Array.from(selectedCategories), ...Array.from(selectedSubcategories)]
+                };
+
+                try {
+                    if (editingProduct) {
+                        await fetch(`${API_URL}/products/${editingProduct.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(productData)
+                        });
+                    } else {
+                        await fetch(`${API_URL}/products`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(productData)
+                        });
+                    }
+
+                    form.reset();
+                    editingProduct = null;
+                    loadProducts();
+                } catch (error) {
+                    console.error('Ошибка сохранения товара:', error);
+                }
+            });
+
+            // Загрузка товаров при загрузке страницы
+            loadProducts();
+        });
+    </script>
+</body>
+</html> 
