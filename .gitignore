@@ -1,6 +1,8 @@
 # Dependencies
 node_modules/
-package-lock.json
+
+# Environment
+.env
 
 # Logs
 logs
@@ -11,6 +13,12 @@ npm-debug.log*
 pids
 *.pid
 *.seed
+*.pid.lock
+
+# Directory for uploaded files
+admin-backend/uploads/
+admin-backend/temp-uploads/
+client-backend/temp-uploads/
 
 # IDE
 .vscode/

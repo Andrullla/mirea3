@@ -2,127 +2,67 @@
   "products": [
     {
       "id": 1,
-      "name": "Ноутбук HP Pavilion",
-      "price": 49999,
-      "description": "Современный ноутбук для работы и развлечений",
-      "categories": [
-        "Компьютеры",
-        "Электроника",
-        "Ноутбуки"
-      ]
+      "name": "MacBook Pro 16",
+      "price": 239990,
+      "category": "Ноутбуки",
+      "description": "Мощный ноутбук для профессионалов",
+      "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16-spacegray-select-202301?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1671304673202"
     },
     {
       "id": 2,
-      "name": "Samsung Galaxy S25",
-      "price": 79999,
-      "description": "Мощный смартфон с отличной камерой",
-      "categories": [
-        "Телефоны",
-        "Электроника",
-        "Samsung"
-      ]
+      "name": "iPhone 15 Pro",
+      "price": 129990,
+      "category": "Смартфоны",
+      "description": "Флагманский смартфон",
+      "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-6-7inch-naturaltitanium?wid=5120&hei=2880&fmt=p-jpg&qlt=80&.v=1692845702708"
     },
     {
       "id": 3,
-      "name": "Механическая клавиатура",
-      "price": 5999,
-      "description": "Игровая механическая клавиатура с подсветкой",
-      "categories": [
-        "Компьютеры",
-        "Комплектующие"
-      ]
+      "name": "Ноутбук Lenovo IdeaPad",
+      "price": 49999,
+      "description": "Современный ноутбук для работы и развлечений",
+      "category": "Компьютеры",
+      "imageUrl": "https://www.lenovo.com/medias/lenovo-laptop-ideapad-3i-15in-hero.png?context=bWFzdGVyfHJvb3R8MjM1NTY0fGltYWdlL3BuZ3xoOWQvaGE5LzE0MTkwNDY2NDg0MjU0LnBuZ3wzNjk5YjkzNDQ0ZTI2NDNhZjJiYTk3ZDhlNDNmMGU5YzY1ZDI0ZTJiMDliZTVmNzU3MjZkYjMyZDM5MGU4ZTlk"
     },
     {
       "id": 4,
-      "name": "Беспроводные наушники",
-      "price": 8999,
-      "description": "Наушники с активным шумоподавлением",
-      "categories": [
-        "Электроника",
-        "Аудио"
-      ]
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": 119999,
+      "description": "Топовый Android-смартфон",
+      "category": "Телефоны",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/p6pim/ru/2401/gallery/ru-galaxy-s24-ultra-s928-sm-s928bzgghse-thumb-539971053"
     },
     {
       "id": 5,
-      "name": "Игровая мышь",
-      "price": 3999,
-      "description": "Профессиональная игровая мышь с RGB подсветкой",
-      "categories": [
-        "Компьютеры",
-        "Комплектующие"
-      ]
+      "name": "Беспроводные наушники Sony WH-1000XM5",
+      "price": 39999,
+      "description": "Премиальные наушники с шумоподавлением",
+      "category": "Аудио",
+      "imageUrl": "https://www.sony.ru/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=1200&hei=470&bgcolor=F1F5F9&bgc=F1F5F9"
     },
     {
       "id": 6,
-      "name": "iPhone 15 Pro",
-      "price": 89999,
-      "description": "Флагманский смартфон Apple с передовой камерой и процессором",
-      "categories": [
-        "Телефоны",
-        "Электроника",
-        "Apple"
-      ]
+      "name": "Механическая клавиатура Keychron K2",
+      "price": 12999,
+      "description": "Беспроводная механическая клавиатура с подсветкой",
+      "category": "Аксессуары",
+      "imageUrl": "https://www.keychron.com/cdn/shop/products/Keychron-K2-wireless-mechanical-keyboard-for-Mac-Windows-iOS-RGB-aluminum-frame-hot-swappable_1800x1800.jpg"
     },
     {
       "id": 7,
-      "name": "Игровой ПК",
-      "price": 129999,
-      "description": "Мощный компьютер для современных игр и работы",
-      "categories": [
-        "Компьютеры",
-        "Игровые ПК"
-      ]
+      "name": "iPad Air 2023",
+      "price": 89999,
+      "description": "Мощный планшет для работы и развлечений",
+      "category": "Планшеты",
+      "imageUrl": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-air-select-wifi-blue-202203?wid=940&hei=1112&fmt=png-alpha&.v=1645065732688"
     },
     {
       "id": 8,
-      "name": "Xiaomi Redmi Note 12",
-      "price": 19999,
-      "description": "Бюджетный смартфон с хорошей производительностью",
-      "categories": [
-        "Телефоны",
-        "Электроника",
-        "Xiaomi"
-      ]
-    },
-    {
-      "name": "Samsung Galaxy S24 Ultra",
-      "price": 82999,
-      "description": "Мощный телефон с хорошей камерой",
-      "categories": [
-        "Электроника",
-        "Телефоны"
-      ],
-      "id": 9
-    },
-    {
-      "name": "iPhone 16 pro",
-      "price": 120000,
-      "description": "айфон 16 про для крутых пацанов",
-      "categories": [
-        "Телефоны",
-        "Apple"
-      ],
-      "id": 11
-    },
-    {
-      "name": "Провод Type-c Lightning",
-      "price": 1000,
-      "description": "Провод для iPhone (до iPhone 15)",
-      "categories": [
-        "Электроника",
-        "Зарядные устройства"
-      ],
-      "id": 12
-    },
-    {
-      "name": "Провод Type-c Type-c",
-      "price": 999,
-      "description": "Провод Type-c",
-      "categories": [
-        "Электроника",
-        "Зарядные устройства"
-      ],
-      "id": 13
+      "name": "Монитор LG UltraGear",
+      "price": 49999,
+      "description": "Игровой монитор 27 дюймов 4K 144Hz",
+      "category": "Мониторы",
+      "imageUrl": "https://www.lg.com/us/images/monitors/md07000002/gallery/desktop-01.jpg"
     }
   ]
 }
